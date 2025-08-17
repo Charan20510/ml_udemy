@@ -1,0 +1,31 @@
+L - 11
+
+Summary
+This lecture covers various data preprocessing techniques essential for machine learning model implementation.
+
+Highlights
+💻 Importing libraries necessary for machine learning models.
+📊 Importing datasets and handling missing data.
+🔄 Encoding categorical data for preprocessing.
+📚 Splitting datasets into training and test sets.
+📏 Implementing feature scaling for better model performance.
+🚀 Encouragement to take action and re-implement the tools provided.
+
+
+L - 12
+
+#   "import" That's just a command that will allow to import a library, or even a function or any type of modules.
+
+#   A library is a symbol of modules containing functions and classes with which you can perform some actions and operations.
+
+Summary
+Learn how to import NumPy, Matplotlib, and Pandas libraries for machine learning.
+
+Highlights
+💻 NumPy is essential for working with arrays in machine learning models.
+📊 Matplotlib allows for the plotting of charts and graphs.
+📦 Pandas is useful for importing and pre-processing datasets.
+🛠 Import libraries using the "import" command in Python.
+📚 Libraries contain modules with functions and classes for performing actions.
+🔄 Use shortcuts like NP for NumPy, PLT for Matplotlib, and PT for Pandas for faster access.
+🧰 Build your toolkit with essential tools for data pre-processing and model building.
