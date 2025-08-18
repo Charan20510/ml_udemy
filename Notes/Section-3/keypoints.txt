@@ -29,3 +29,59 @@ Highlights
 📚 Libraries contain modules with functions and classes for performing actions.
 🔄 Use shortcuts like NP for NumPy, PLT for Matplotlib, and PT for Pandas for faster access.
 🧰 Build your toolkit with essential tools for data pre-processing and model building.
+
+
+L - 13
+
+#   In any data set with which you're gonna train a machine learning model, you have the same entities, which are the features and the dependent variable vector.
+
+#   The features are the columns with which you are going to predict the dependent variable.
+
+Summary
+In this lesson, we learn how to import a dataset using Pandas read_csv() function. We also create the matrix of features and the dependent variable vector.
+
+Highlights
+💻 We import the dataset 'data.csv' using Pandas read_csv() function.
+📊 The dataset consists of customer information like country, age, salary, and purchase status.
+🧑‍🤝‍🧑 The features are the columns used to predict the dependent variable.
+📈 The dependent variable is the column to be predicted.
+📝 It is crucial to separate features and dependent variables in machine learning datasets.
+🗂️ We create the matrix of features 'x' and the dependent variable vector 'y' from the dataset.
+📑 The matrix of features contains the columns country, age, and salary while the dependent variable vector contains the purchase status column.
+
+
+L - 14
+
+#   ilock here stands for locate indexes and therefore what this function will do is it will take the indexes of the columns we want to extract from the data set. Not only the indexes of the columns but also the indexes of the rows.
+
+#   We want to keep all the rows. And the trick to take all the rows, whatever data set you have, with whatever number of rows is to add here a colon.
+
+#   Why is that? Because a column in Python means a range. And when we specify a range without the lower bound and neither the upper bound, that means in Python that we're taking everything in the range, therefore here's all the rows.
+
+#   That means that we're taking the first index, the index zero, because indexes in Python start at zero. And then we're going up to minus one. So what does this minus one mean? Well, minus one means here, the last column. Minus one in Python means the index of the last column.
+
+Summary
+Using Pandas iloc for feature selection involves extracting the first three columns of a dataset to create the matrix of features X.
+
+Highlights
+💡 To create X, take the indexes of the first three columns of the dataset using iloc.
+💡 Specify all rows and columns except the last one to create the matrix of features.
+💡 Use a range of : -1 to automatically select all columns except the last one.
+💡 The range in Python includes the lower bound but excludes the upper bound.
+💡 Adding .values at the end retrieves all values in the selected rows and columns.
+💡 This technique will be useful for creating future matrices of features in ML data preprocessing.
+
+
+L - 15
+
+Summary
+In this lesson, the instructor explains how to create both the matrix of features (X) and the dependent variable vector (Y) for machine learning model training.
+
+Highlights
+💡 The dependent variable vector is typically the last column in the dataset.
+💡 Using iloc to extract the desired rows and columns from the dataset.
+💡 The index for selecting the last column is -1.
+💡 X contains the independent variables such as country, age, and salary.
+💡 Y contains the purchase decisions of customers.
+💡 Creating X and Y separately is necessary for building machine learning models.
+💡 The next step involves handling missing data in the dataset.

@@ -21,10 +21,3 @@
 10. *“Summarize this entire section as a one-page cheat sheet.”*
 11. *“Link today’s lecture with the previous one for continuity.”*
 12. *“Suggest a mini-project or practical use case from this topic.”*
-
-i will give the content one by one
-do all the steps mentioned above
-
-
-
-now give me the two contents in the form of jupyter notebook
