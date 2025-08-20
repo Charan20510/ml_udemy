@@ -311,3 +311,106 @@ Highlights
 🛠️ Feature scaling should be applied after splitting the data to ensure the test set represents new observations.
 🧩 This new tool in data preprocessing prepares for building future machine learning models.
 🚀 The next step is to explore feature scaling and continue building predictive models.
+
+
+*****   Coding Exercise 4   *****
+
+L - 25
+
+#   Well, that's because for some of the machinery models that's in order to avoid some features to be dominated by other features in such a way that the dominated features are not even considered by the machinery model.
+
+#   For a lot of machinery models we won't even have to apply feature scaling even if we have features taking very different values.
+
+#   Should we go for standardization or normalization? Well, we're gonna be here very pragmatic. Normalization is recommended when you have a normal distribution in most of your features. This will be a great feature scaling technique in that case. Standardization actually works well all the time. It will do the job all the time.
+
+#   Therefore, since this is a technique that will work all the time and this is a technique that is more recommended for some specific situations where you have most of your features following a normal distribution then my ultimate recommendation for sure is to go for standardization. Because indeed this will always work, you will always do some relevant feature scaling and this will always improve the training process.
+
+#   And I'm saying matrices of features because now we have two matrices of features which are X-train and X-test. And since we understood in the previous tutorial that feature scaling must be applied after the split while you understand that we won't apply feature scaling on the whole matrix of features X but of course on both X-train and X-test separately.
+
+#   And actually the scaler will be fitted to only X-train and then we'll transform X-test. You know, we'll apply feature scaling on X-test because indeed since X-test is something that we're not supposed to have during the training,
+
+Summary
+Feature scaling is crucial in data preprocessing to put all features on the same scale, avoiding domination of certain features by others in machinery models. Two main techniques for feature scaling are standardization and normalization, with standardization being recommended for its consistent performance. Feature scaling should be applied separately to training and testing datasets to avoid data leakage.
+
+Highlights
+🔍 Feature scaling is essential to prevent domination of features in machinery models.
+📏 Standardization and normalization are the main techniques for feature scaling.
+📈 Standardization is recommended for consistent performance, especially when features follow a normal distribution.
+🧮 Feature scaling should be applied separately to training and testing datasets.
+🧩 Understanding the importance of fitting the scaler to the training set and transforming the test set.
+💡 Clear explanation on when to apply feature scaling in data preprocessing.
+🛠️ The implementation of feature scaling is crucial for improving the training process.
+
+
+L - 26
+
+#   Do we have to apply feature scaling you know, standardization to the dummy variables in the matrix of features? This is one of the most frequently asked questions.
+
+#   The answer is no, The answer is no, because simply, well remember the goal of standardization or feature scaling in general, it is to have all the values of the features in the same range.
+
+#   And since I told you that standardization actually transforms your features so that they take values between more or less minus three and plus three, while since here our dummy variables already take values between minus three and plus three because they're equal to either one or zero. Well, there is nothing extra to be done here with standardization.
+
+#   And actually, standardization will only make it worse because indeed it will still transform these values between minus three and plus three. But then you will totally lose the interpretation of these variables. In other words, you will lose the information of which country corresponds to the observation.
+
+#   Only apply feature scaling to your numerical values. Right here, we have clearly some variables taking values in a very different range, right? The age goes between zero and 100 and the salary goes between zero and 100,000. So clearly here, if it's better for the missionary model we have to apply feature scaling but let's leave these dummy variables alone so that we can keep the interpretability of the model.
+
+Summary
+Step 2 covers how to scale numeric features using the Standard Scaler class in scikit-learn for machine learning preprocessing.
+
+Highlights
+💡 Standard Scaler class in scikit-learn performs standardization on both training and test feature matrices.
+💡 Feature scaling should not be applied to dummy variables as they are already within the same scale range.
+💡 Applying feature scaling to dummy variables can lead to loss of interpretability and won't significantly improve model performance.
+💡 Only apply feature scaling to numerical values that are in different ranges.
+💡 Keeping dummy variables as they are helps maintain the interpretability of the model.
+💡 Feature scaling is crucial for variables with different ranges like age and salary.
+💡 Understanding when to apply feature scaling is key to effective data preprocessing.
+
+
+L - 27
+
+#   Which we called sc, from, which well, we're gonna use that fit method that will indeed, for each feature of X train, compute the mean of the feature, meaning the mean of the age, and then the mean of the salary. And then compute the standard deviation of the feature the age and the salary.
+
+#   And that's exactly what the fit method will do. It will only compute the mean and the standard deviation of all the values.
+
+#   And then you have the transform method that will indeed apply this formula by, you know, transforming each of the values here if each feature into this value resulting from this formula.
+
+#   All right, so it's important to understand the difference between fit and transform. Fit will just get the mean and send the deviation of each of your features, and transform will apply this formula to indeed transform your values so that they can all be in the same scale.
+
+#   the good news is that one of the methods of the standard scale of class is actually fit transform, which of course will proceed to the two tools at the same time. Meaning it'll fit your matrix of features to get the mean and standard deviation. And then right after that, transform all the values of the features to turn them into this formula.
+
+#   And now obviously you know what to input inside this fit transform method. While that's of course exactly the same as extra in here because indeed we will only apply feature scaling to our numerical columns here containing non integer values, right? Non dummy variables, values.
+
+Summary
+The instructor explains how to fit and transform a scaler object on specific columns in a dataset for feature scaling.
+Indexes in Python start from zero, and the instructor demonstrates how to specify the columns for feature scaling.
+The fit method calculates the mean and standard deviation of each feature, while the transform method applies a formula to transform the values.
+The fit_transform method combines fitting the scaler object and transforming the values in one step for efficiency.
+Highlights
+💡 The fit method computes the mean and standard deviation of features.
+💡 Python indexes start from zero.
+💡 The transform method applies a formula to transform feature values.
+💡 The fit_transform method fits and transforms features in one step for efficiency.
+
+
+L - 28
+
+#   Now we have to also transform our matrix of features of the test set, meaning x_test this matrix of features. But since this data is like new data, which we get, you know, later on in production, well, for this data I will only apply the transform method because indeed the features of the test set need to be scaled by the same scaler that was used on the training set.
+
+#   We cannot get a new scaler. You know, if we applied the fit transform method here on x_test, we would get a new scaler. And that would absolutely not make sense, because x_test will actually be the input of the predict function that will return the predictions, you know, after the machine learning model is trained.
+
+#   And since this machine learning model will be trained with a particular scaler, you know, the scaler applied on the training set, well, in order to make predictions that will be congruent with the way the model was trained, well, we need to apply the same scaler that was used on the training set onto the test set, so that we can get indeed the same transformation, and therefore in the end, some relevant predictions with the predict method applied to x_test.
+
+Summary
+In this lesson, we learn about applying feature scaling to the test set using the same scaler as the training set in order to ensure consistency in predictions.
+
+Highlights
+💡 It is crucial to apply the same scaler used on the training set to the test set for consistent predictions.
+💡 Using the transform method on the test set ensures that the features are scaled correctly.
+💡 The transform method, not fit transform, should be used on the test set.
+💡 Consistent scaling of variables helps improve the training of machine learning models.
+💡 The data pre-processing template provided simplifies the process for future machine learning models.
+💡 The template requires minimal changes, making it efficient for data pre-processing tasks.
+💡 Understanding and implementing feature scaling is a key step before moving on to building machine learning models.
+
+*****   Coding Exercise 5   *****
