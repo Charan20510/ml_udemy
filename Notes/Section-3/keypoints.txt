@@ -85,3 +85,229 @@ Highlights
 💡 Y contains the purchase decisions of customers.
 💡 Creating X and Y separately is necessary for building machine learning models.
 💡 The next step involves handling missing data in the dataset.
+
+
+L - 17
+
+#   First way is to just ignore the observation by deleting it. That's one method, and this actually works if you have a large data set, and you know, if you have only 1% missing data, you know removing 1% of the observations won't change much the learning quality of your model, so 1% is fine, but sometimes you can have a lot of missing data, and therefore you must handle them the right way.
+
+#   So here we have a missing salary, what we want to do, is to replace this missing salary by the average of all these salaries. This is a classic way of handling missing data.
+
+#   There are actually many replacements that you could do, you could, instead of replacing it by the average salary, you could replace it by the median salary
+
+#   First, we have to specify which missing values we have to replace. And so that's why we have to enter here first argument called missing_values, which has to be equal to np, you know, the NumPy library, .nan, this is like an empty value, this is what this means, an empty value.
+
+#   the second argument (exactly the one saying that indeed the missing_values here, the empty values of the data set will be replaced by the mean) And to do this, we have to add the next argument here, which is strategy, and this argument will be equal to, in quote, mean.
+
+Summary
+Using Scikit-Learn to replace missing values in machine learning involves handling missing data by either ignoring observations or replacing missing values with averages.
+
+Highlights
+💡 Ignoring missing data works if the dataset is large and only a small percentage of data is missing.
+💡 Replacing missing values with the average of all values in the column is a classic way of handling missing data.
+💡 Scikit-Learn, a powerful data science library, offers tools like SimpleImputer to handle missing data effectively.
+💡 The SimpleImputer class from Scikit-Learn can be used to replace missing values with the mean of the feature itself.
+💡 Different strategies like replacing missing values with the median or most frequent value are also options but using the mean is recommended.
+💡 The process involves specifying the missing values to replace and the strategy to use, such as replacing with the mean.
+💡 By creating an instance of SimpleImputer and specifying the arguments, missing values can be effectively replaced in the dataset.
+
+
+L - 18
+
+#   Remember that a class contains an assemble of instructions but also some operations and actions which you can apply to other objects or variables. And these are called methods. You know, they're like functions and one of them is exactly the fit method.
+
+#   The fit method will exactly connect this imputer to the matrix of features. In other words, what this fit method will do is it will look at the missing values in, you know, the salary column and also it will compute the average of the salaries.
+
+#   To do the replacement we'll have to call another method called transform and which will this time apply the transformation meaning it will replace the missing salary here by the average of the salaries.
+
+#   It simply expects all the columns of X with numerical values but only the ones with numerical values not the ones with text or strings or categories.
+
+#   So here we're specifying specific columns which are the age column and the salary column. And that's because we know that there is a missing salary. And by the way, there is also a missing age.
+
+#   Final step we have to call the transform method once again from our imputer object. And so this transform method will exactly do that replacement of the missing salary here by the mean of the salaries. And same for the missing age. It'll be replaced by the mean of all the ages in the age column.
+
+#   We of course have to input the columns of X where we want to replace missing data. And so these are the age column and the salary column. And therefore we simply have to input exactly the same as what was input in the fit method. So we're just gonna take this, copy this and paste that inside the transform method.
+
+#   However, be careful, this transform method actually returns the new updated version of the matrix features X with the two replacements of the missing salary and the missing age. And therefore, what we want to do now and that's the last we have to do is to indeed update our matrix of features X.
+
+
+./>     -----   exercise    -----
+# Identify missing data (assumes that missing data is represented as NaN)
+missing_data = df.isnull().sum()
+
+# Print the number of missing entries in each column
+print("Missing Data: \n", missing_data)
+-----   end     -----
+
+Summary
+
+In this step, we use the SimpleImputer object to replace missing data in numerical columns of a dataset.
+
+Highlights
+💡 The fit method connects the imputer to the matrix of features and computes averages.
+💡 The transform method replaces missing values with the averages.
+💡 Specify only numerical columns to avoid errors when replacing missing data.
+💡 Remember to include all numerical columns to ensure all missing data is replaced.
+💡 Update the matrix of features by using the transform method to replace missing values.
+💡 Check the updated matrix to verify that missing values have been replaced successfully.
+💡 This step adds another valuable tool to your data processing toolkit.
+
+
+L - 19
+
+#   So we want to avoid the model to have such an interpretation because that could cause some misinterpreted correlations between the features and the outcome which we want to predict. Therefore, we can actually do much better than just encode these three countries into zero, one, and two.
+
+#   We can do better is actually one hot encoding and one hot encoding consists of turning this country column into three columns.
+
+#   One hot encoding consists of creating binary vectors for each of the countries. Let me explain this right away. So very simply, France would, for example have the vector 1 0 0. Spain would have the vector 0 1 0 and Germany would have the vector 0 0 1. So that then there is not a numerical order between the three countries because instead of having zero, one, and two, we would only have zeros and ones.
+
+#   Remember that there is also this purchased columns that has labels, you know, non-numerical values with yes and nos. And we will actually have to replace them by zeros and ones. And that's totally fine for the dependent variable as long as it is a binary outcome, it is super fine. It will actually not compromise the future accuracy of the model if you just replace no and yes by zero and one.
+
+#   To do this, we're going to use two classes. The first one is the column transformer class from the compose module of once again the scikit-learn library. And the second class is the one hot encoded class from the pre-processing module of the same Scikit-learn library.
+
+./>
+from sklearn.compose import ColumnTransform
+from sklearn.preprocessing import OneHotEncoder
+-----   end     -----
+
+Summary
+In this lesson, the instructor explains the importance of encoding categorical data for machine learning algorithms and introduces the concept of one-hot encoding.
+
+Highlights
+💡 Categorical data needs to be encoded into numerical values for machine learning models to compute correlations accurately.
+💡 One-hot encoding involves creating binary vectors for each category in a column, eliminating numerical order and misinterpretations.
+💡 This method is used to preprocess data sets with categorical variables, such as replacing non-numerical labels with zeros and ones.
+
+
+L - 20
+
+#   CT, which stands for, you know the object of the column transformer class. So CT equals, and now of course remember to create an instance or an object of a class you have to call the class itself. So column transformer class, there we go. Now since it is a class we have to add some parenthesis and site which we have to enter two arguments.
+
+#   So these two arguments are first transformers, where we will specify, what kind of transformation we want to do and on which indexes of the columns we want to transform. And the second argument is remainder which will specify that we actually want to keep the columns that won't be applied some transformations meaning age and salary.
+
+#   So for the first one, transformers we actually have to specify three things. First, the kind of transformation which is encoding. Second, what kind of encoding we want to do which is, one hot encoding. And third, the indexes of the columns we want to encode meaning country, the country column.
+
+#   The second argument remainder. So here we want to specify in quote the following code name, which is passthrough, and which is a code name that will say that we indeed want to keep the columns that won't be applied some transformation that won't be one hot encoded Which are of course age and salary.
+
+#   If we don't include this remainder equals passthrough here. Then when we apply the transformation on X we will only keep, you know the first three columns resulting from one hot encoding. And of course we want to keep age and salary into our matrix of features.
+
+#   Our column transformer class actually has a method called fit transform which will do exactly the process of fitting and transforming at once at the same time.
+
+#   Our CT object from which we're gonna call this, fit transform method, which will get as input well of course X because that's what we want to transform.
+
+#   The fit transfer method actually doesn't return the output as a NumPy array. And it is absolutely compulsory to have X as NumPy array, because this will be expected by the future machinery models which we're gonna build. You know, in order to train the future machinery models where we're gonna use a train function, which is actually called fit. And this train function will expect the matrix of features X as a NumPy array. So here we want to force the output of this fit transfer method to be a NumPy array.
+
+#   And to do this, we simply need to call well NumPy first which has a shortcut name NP from which we're gonna call this array function which will take as input exactly the output of the fit transform method.
+
+./>
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder, [0])] , remainder="passthrough")
+X = np.array(ct.fit_transform(X))
+-----   end     -----
+
+Summary
+In this step, we use ColumnTransformer to handle categorical data by implementing one-hot encoding.
+
+Highlights
+🔧 Create an object of the ColumnTransformer class named CT.
+🔢 Specify the type of transformation, such as one-hot encoding, and the column indexes to transform.
+🔄 Use the fit_transform method of CT to connect and transform the matrix of features X at once.
+📊 Update the matrix of features X with the transformed data.
+🧮 Convert the output of fit_transform to a NumPy array for compatibility with future machine learning models.
+
+
+L - 21
+
+#   The dependent variable because indeed it has a text format. No. And yes, and we would just like to convert these strings into zero and one respectively. And to do this, well that's very simple we're gonna use another class called "Label Encoder" and which will exactly encode these no's and yes's into zeros and ones respectively.
+
+#   Then good news, we don't have to input anything in the parenthesis because you know we will just need to enter directly. Why? Because it is only one single vector. So it will be obvious what will be needed to encode.
+
+#   Once again, there is a fit transform method which we can call directly on "Y" and which will exactly convert the no's and yes's, you know the text inside numerical values. And this time we don't have to have a non-binary because this is the dependent VO vector. It doesn't need to be a non-binary, you know as what is expected by the future missionary models. So we can just set the new "Y" to be what is returned by this fit transfer method, apply to the old Y with the texts no's and yes.
+
+./>
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+y = le.fit_transform(y)
+-----   end     -----
+
+Summary
+In this tutorial, the trainer demonstrates how to preprocess categorical data using one-hot encoding and label encoding techniques.
+Highlights
+
+💡 One-hot encoding transforms categorical data into numerical values using binary encoding.
+💡 One-hot encoding creates new columns for each category, representing them as vectors of zeros and ones.
+💡 Label encoding is used for binary outcomes, converting text labels into zeros and ones.
+💡 Label encoding is simpler and directly encodes two classes into numerical values.
+💡 Preprocessing categorical data is essential for preparing data for machine learning models.
+💡 Understanding both one-hot encoding and label encoding expands the data preprocessing toolkit.
+💡 The next step is to split the dataset into training and test sets for model training.
+
+
+L - 22
+
+#   One of the most frequently asked questions in the data science community; which is be ready for it. Do we have to apply feature scaling before splitting the data set into the training set and test set, or after?
+
+#   So, the answer is we have to apply feature scaling after splitting the data set into the training set and the test set.
+
+#   So, of course splitting the data set into the training set and a test set consists of making two separate sets. One training set where you're gonna train your machinery model on existing observations, and one test set where you're going to evaluate the performance of your model on new observations.
+
+#   The new observations are exactly like, you know some future data that you're gonna get and on which you're going to deploy your machine learning model. Alright, so that's this first tool. And now feature scaling simply consists of scaling all your variables, all your features, actually, to make sure they all take values in the same scale.
+
+#   Why? the test set is supposed to be a brand new set on which you're going to evaluate your machine learning model. So it's exactly like, you know, your training your machine learning model on your training set, and then later on, you know, after it is trained you're going to deploy it on new observations. So what this means is that the test set is something you're not supposed to work with for the training.
+
+#   Feature scaling is, as you will see, a technique that will get the mean and the standard deviation of your feature, you know, in order to perform the scaling.
+
+#   So, if we apply feature scaling before the split then it will actually get the mean and the standard deviation of all the values, including the ones in the test set. And since the test set is something you're not supposed to have, you know, like some future data in production, well you know, applying feature scaling on the original data set, before the split, would cause some what we call information leakage on the test set.
+
+#   You know, we would grab some information from the test set, which we're not supposed to get, because it is supposed to be new data with new observations.
+
+Summary
+In this tutorial, the speaker explains the importance of splitting data into training and test sets and the timing of applying feature scaling in the process.
+
+Highlights
+💡 Splitting the data set into training and test sets is crucial for training and evaluating machine learning models.
+💡 Feature scaling is necessary to ensure that all variables are in the same scale to prevent dominance of one feature over others.
+💡 Feature scaling should be applied after splitting the data set to prevent information leakage on the test set.
+💡 The test set should be treated as new data for model evaluation, and applying feature scaling before the split could leak information from the test set.
+💡 Applying feature scaling after the split ensures that the test set remains untouched and maintains its integrity for model evaluation.
+
+
+L - 23
+
+#   We're basically going to get four sets, X train, which is the matrix of features of the training set. X test, which is the matrix of features of the test set Y train, which is the dependent variable of the training set, and Y test, which is the dependent variable of the test set. That's exactly what we want.
+
+#   It expects, well, the combination of the matrix of features X, and the dependent variable vector Y. And that's the first two inputs of this function.
+
+#   So, we still have to input two more arguments which are going to be first the split size, you know, because we're not going to split this data set into a training set and a test set of the same size. Actually, we need a lot of observations in the training set and a few in the test set, but we need a lot of them in the training set, so as to give the future machinery model more chance to understand and learn the correlations in the data set.
+
+#   So, let me just tell you the recommended size of the split. Well, I recommend to have 80% observation in the training set, and 20% in the test set. All right, this is a very good split.
+
+#   Because the observations will be randomly split into the training set and the test set. Well, to make sure we have the same random factors, we'll just set here, random_state = 1, right? We're just fixing the seed here so that we'll get the same split and therefore the same training set, and same test set.
+
+Summary
+In this tutorial, the instructor explains how to split a dataset into training and test sets using the train_test_split function from scikit-learn library in Python for machine learning models.
+
+Highlights
+💡 The train_test_split function creates four sets: X train, X test, Y train, and Y test.
+✨ The format of these sets is crucial for the future machinery models that will be built.
+📊 A recommended split size is 80% for training and 20% for testing.
+🧩 The random_state parameter can be set for reproducibility of results.
+🛠️ Utilizing Google Colab for efficient coding.
+📝 Inputs for the train_test_split function include X (features) and Y (dependent variable) matrices.
+🧪 The function allows for the creation of separate sets for training and testing machine learning models.
+
+
+L - 24
+
+Summary
+In this lesson, the instructor demonstrates how to split a data set into training and test sets in Python, emphasizing the importance of avoiding information leakage by applying feature scaling after the split.
+
+Highlights
+💻 The code provided splits the data set into x train, y train, x test, and y test sets.
+📊 x train contains features for the training set, including dummy variables, age, and salary.
+🧪 x test contains features for the test set, with observations corresponding to random customers.
+📈 y train and y test contain purchase decisions encoded with zeros and ones.
+🛠️ Feature scaling should be applied after splitting the data to ensure the test set represents new observations.
+🧩 This new tool in data preprocessing prepares for building future machine learning models.
+🚀 The next step is to explore feature scaling and continue building predictive models.
