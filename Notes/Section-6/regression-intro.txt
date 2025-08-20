@@ -1,0 +1,85 @@
+Welcome to Part 2 - Regression
+
+Regression models (both linear and non-linear) are used for predicting a real value, like salary for example. If your independent variable is time, then you are forecasting future values, otherwise your model is predicting present but unknown values. Regression technique vary from Linear Regression to SVR and Random Forests Regression.
+
+In this part, you will understand and learn how to implement the following Machine Learning Regression models:
+
+Simple Linear Regression
+
+Multiple Linear Regression
+
+Polynomial Regression
+
+Support Vector for Regression (SVR)
+
+Decision Tree Regression
+
+Random Forest Regression
+
+
+-----   ChatGPT    -----
+
+
+Alright, let’s imagine this in a **super simple way** 🤗
+
+You want to **predict something with numbers** (like your marks, your height, or your pocket money). That’s what **regression** does. It tries to find a **pattern** in old data so it can guess new answers.
+
+---
+
+### 📘 The Types of Regression (like different ways of guessing):
+
+1. **Simple Linear Regression**
+   👉 Imagine drawing a **straight line** through dots on a paper (dots are your data).
+   The line helps you guess where the next dot might be.
+   Example: Predicting how tall you’ll be based on your age.
+
+---
+
+2. **Multiple Linear Regression**
+   👉 Instead of just one thing (like age), you use **many things** (age, food, exercise, sleep) to guess height.
+   It’s like mixing many ingredients to bake a cake 🍰.
+
+---
+
+3. **Polynomial Regression**
+   👉 Sometimes dots don’t fit a straight line. They curve.
+   So instead of a straight line, you draw a **curvy line**.
+   Example: Your marks improve slowly, then shoot up, then slow down again.
+
+---
+
+4. **Support Vector Regression (SVR)**
+   👉 Imagine putting a **tight rubber band** around your data. The band tries to keep the line as close as possible to all the dots.
+   It’s a fancy way to keep predictions balanced.
+
+---
+
+5. **Decision Tree Regression**
+   👉 Imagine asking questions like a game:
+
+* “Is your age more than 10?”
+* “Do you eat fruits every day?”
+  Each answer sends you down a branch of the tree 🌳 until you reach a number (the prediction).
+  It’s like a flowchart.
+
+---
+
+6. **Random Forest Regression**
+   👉 A forest is made of many trees 🌳🌳🌳.
+   Here, the computer grows **lots of decision trees**, and all the trees give answers.
+   The forest then takes the **average** of all answers to be super smart.
+
+---
+
+💡 **In short:**
+
+* Linear = straight line
+* Multiple = many factors
+* Polynomial = curvy line
+* SVR = tight rubber band
+* Decision Tree = Q\&A tree
+* Random Forest = many trees voting together 🌳✨
+
+---
+
+Do you want me to also give you a **real-life simple story example** (like predicting your pocket money with each method)?

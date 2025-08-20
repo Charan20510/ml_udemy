@@ -1,0 +1,82 @@
+L - 41
+
+#   So on the left, we have our dependent variable, which we're trying to predict. On the right, we have our independent variable, which is the predictor. Here we have b0, which is the y-intercept, also known as the constant, and b1 is the slope coefficient.
+
+Summary
+Understanding simple linear regression through the example of predicting potato yield based on fertilizer usage.
+
+Highlights
+💡 Simple linear regression equation breakdown: dependent variable, independent variable, y-intercept, slope coefficient.
+💡 Example of predicting potato yield using fertilizer amounts.
+💡 Graphical representation through scatter plot with data points.
+💡 Interpretation of y-intercept and slope coefficient in the context of potato yield prediction.
+💡 Increase in fertilizer usage by one kilogram results in a three-ton increase in potato output.
+💡 Illustrative explanation of how simple linear regression works in predicting outcomes.
+💡 Excitement for future machine learning endeavors.
+
+
+L - 42
+
+#   How do we know which of the sloped lines is the best one? Is it this one or is it this one? As we can see, there can be multiple slope lines that we can draw through our data points. And how do we know which one is the best one, which is the best linear regression, and, in fact, how do we even define the best one?
+
+#   The Ordinary Least Squares method. And the way it works in a visual sense is we need to take our data points and project them vertically onto our linear regression line. Now, we would need to do this for every single linear regression line that we're considering, but for simplicity's sake in this tutorial, we're just going to do it with this line here in the middle.
+
+#   Now, for each pair of points, we have two values, yi and yi-hat. So, what are these values? yi is the actual amount of potatoes. In our case, in our example, potatoes yielded from the farm when that specific amount of nitrogen fertilizer was used. So, let's say 15 kilograms of nitrogen fertilizer were used and the farm yielded two tons of potatoes.
+
+#   yi-hat, on the other hand, is what this linear regression that we're considering, Let's have a look at simple linear regression. and we will look at the parts of this equation one by one.
+
+#   But what we want to do is we want to find the best line, and it will be related to how small these differences are, as we can imagine.
+
+#   There's our yi and yi-hat. The difference between them is called the residual. Here's our equation. And the best equation is such equation where b, or where such an equation where the parameters b0 and b1 are such that the sum of the squares of the residuals is minimized. And that's why it's called the Ordinary Least Squares method.
+
+#   So, we need to take all of these residuals, these differences, we need to square them for every single data point, and then we need to add up the sum. And whenever we find the smallest value, so, for whichever regression line this value is going to be the smallest, that will be the best regression line.
+
+#   And that will guarantee that the line is going nicely through the data points and it is the best line or the best linear regression to use for modeling our problem.
+
+Summary
+Understanding Ordinary Least Squares Regression is essential to finding the best fit line for data points. The method involves minimizing the sum of squares of residuals to determine the best linear regression.
+
+Highlights
+🔍 The Ordinary Least Squares method involves projecting data points vertically onto a linear regression line.
+📉 Residuals are the differences between actual values and predicted values by the regression line.
+🥔 yi represents the actual yield while yi-hat represents the predicted yield.
+📊 The best fit line is determined by minimizing the sum of squares of residuals.
+💡 This method ensures that the regression line best fits the data points for accurate modeling.
+🤖 Understanding this method is crucial for effective machine learning applications.
+📈 Ordinary Least Squares Regression guarantees the best linear regression for modeling problems.
+
+
+L - 43
+
+#   Regression This is the branch of machine learning that aims to predict some continuous real numbers, like for example, a salary, or a temperature, or any kind of continuous numerical value.
+
+#   It is a dataset containing, as you can see 30 observations, and two columns with of course, one feature. This is the feature, years of experience, and the dependent variable, which we want to predict, which is the salary.
+
+#   And so, the goal, very simply, is to build a simple linear regression model, that will be trained to understand the correlations between the number of years of experience and the salary, so that it can predict for a new employee, you know, having a new number of years of experience, well, the corresponding salary, or the salary that this person should get.
+
+Summary
+In this tutorial, we will be focusing on mastering simple linear regression and its implementation using Python.
+
+Highlights
+💡 Regression models aim to predict continuous real numbers, such as salary or temperature.
+💡 Starting with simple linear regression, which involves one independent variable and one continuous real value to predict.
+💡 Other regression models include multiple linear regression, polynomial regression, support vector regression, decision tree regression, and random forest regression.
+💡 The goal is to have a toolkit of regression models to choose from when predicting outcomes for different datasets.
+💡 The dataset for simple linear regression contains 30 observations with years of experience as the feature and salary as the dependent variable.
+💡 Code templates provided can be easily adapted to new datasets by changing only a few variables.
+💡 Focus is on building a strong understanding of the model itself through the use of a simple dataset.
+
+
+L - 44
+
+Summary
+The text discusses the data preprocessing steps for implementing a simple linear regression model in Python using Google Colaboratory.
+
+Highlights
+💻 Importing libraries for data preprocessing.
+📊 Importing and splitting the dataset into training and test sets.
+🧠 Training the simple linear regression model on the training set.
+📈 Predicting and visualizing the test set results.
+🔄 Implementing the simple linear regression model from scratch.
+📚 Learning by doing and taking action to understand the implementation process.
+🛠 Utilizing data preprocessing templates to streamline the process.
