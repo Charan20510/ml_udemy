@@ -80,3 +80,127 @@ Highlights
 🔄 Implementing the simple linear regression model from scratch.
 📚 Learning by doing and taking action to understand the implementation process.
 🛠 Utilizing data preprocessing templates to streamline the process.
+
+
+L - 45
+
+#   And this library that we're gonna use is Scikit-learn from which we're gonna get access to a certain module called linear model. And from this module we're gonna call a certain class called linear regression. And our simple linear regression model which we're gonna build will be exactly an instance of this class.
+
+#   And then, as we said, this simple linear regression model which we're gonna build, will be an instance or an object of this linear regression class.
+
+#   I remind the big difference between regression and classification regression is when you have to predict a continuous real value, like a salary, as we're about to do. And classification is when you have to predict a category or you know, a class, which we will do in part three, Classification.
+
+#   Usually there are some parameters inside that we can implement, but here, you don't have to enter anything. This will just create the simple linear regression model, and it is so simple that usually, we don't have to play too much with the parameters.
+
+Summary
+Building a simple linear regression model with Scikit-learn in Python involves importing the linear regression class, creating an instance of the class, and using the fit function to train the model on the training set.
+
+Highlights
+💡 Import the linear regression class from the Scikit-learn library.
+💡 Create an instance of the linear regression class to build the simple linear regression model.
+💡 Use the fit function to train the model on the training set.
+
+
+L - 46
+
+#   The method that we're gonna use to train our regression model is the fit method.
+
+#   So as a reminder, the fit method here is a method of the linear regression class. And I remind also that a class, indeed, has a couple of, not only instructions, but also tools. And these tools are called the method. And these tools complete some actions like training a model on a certain training set or predicting some future results on the test set. So that's the first method.
+
+#   So basically this fit method will train this regression model, the simple linear regression model on the training set.
+
+#   However, we have to enter it in a certain way, because the fit method expects a certain format of the training set. And this format is, of course, the couple of X_train and y_train.
+
+#   I remind that X_train contains the features, the independent variables of the training set. And y_train contains the dependent variable vector of the training set as well. And the fit method here expects exactly the training set in this format with first the matrix of features X_train and second the dependent variable vector, X train and Y train, just like that.
+
+Summary
+Training a linear regression model in Python involves using the fit method with the training set formatted as X_train and y_train.
+
+Highlights
+💡 The fit method trains the regression model on the training set.
+💡 The training set must be formatted as X_train (features) and y_train (dependent variable vector).
+💡 Importing libraries, splitting the data set, and calling the fit method are essential steps.
+💡 The default parameters for the linear regression model are created automatically.
+💡 Building and training the first machine learning model is an exciting milestone.
+💡 The predict method is used to predict new observations.
+💡 The course provides code templates for efficient machine learning model building.
+
+
+L - 47
+
+#   We wanna predict the results of the observations in the test set.
+
+#   So let's say, just to simplify the explanation, that the observations of the test set are the last six ones, you know, 1, 2, 3, 4, 5, 6. So let's say all these observations went into the test set. Well, what we wanna do now is predict for each of these observations, meaning for each of these employees, the salary.
+
+#   So what we're gonna input in that predict method is exactly the number of years of experience for each of these six employees. And our moral will predict the salaries.
+
+#   So the salaries that we see here, you know, the last six ones are the exact salaries, you know the truth. We call it the ground truth. And when calling the predict method on these six numbers of years of experience, we will get six predicted salaries.
+
+#   And so what we'll wanna do then will be to compare the predicted salaries to these real six salaries.
+
+#   Here, we only need the numbers of experience because from the numbers of experience we want to predict the salaries. And the numbers of experience are exactly contained in X test, right? Because we want the numbers of experience of the test set. And so the only thing we had to input here is X test.
+
+#   I'm actually going to put all these predictions, because this returns actually a vector of predictions, you know, a vector containing the predicted salaries of the employees in the test set. So I would like to put all these predicted salaries in a vector, therefore in a new variable. And therefore here, I'm creating this new variable, which I'm calling Y-pred, you know, as opposed to Y-test, which contains the real salaries.
+
+#   So make sure to understand Y-test here contains the real salaries, and Y-pred here contains the predicted salaries.
+
+Summary
+Explanation of using Scikit-Learn's predict method for linear regression in Python.
+Predicting the results of observations in the test set by inputting years of experience.
+Comparing predicted salaries to real salaries for evaluation.
+Creating Y-pred variable to store predicted salaries.
+Visualizing training set and test set results for model evaluation.
+Highlights
+🤖 Easy implementation of predict method for making predictions.
+📊 Visualizing results for clear understanding of model performance.
+📈 Comparing predicted salaries to real salaries for evaluation.
+
+
+L - 48
+
+#   So basically we're gonna have a 2D plot with the X axis being the numbers of years of experience, you know, from one to 10, and the Y axis being the salaries, you know, in the range of salaries given in this dataset. And so we will plot in red points, the real salaries and in a blue straight line, the predicted salaries.
+
+#   And we will do that both for the predictions in the training set and the predictions in a test set.
+
+#   As a reminder, it has the shortcut, PLT, actually what we're gonna call is, exactly the pie plot module from the Matplotlib library. And this is what is having the PLT shortcut.
+
+#   And then we're gonna call a specific function from this module, which is called scatter. And scatter will allow us to put the red points, you know, corresponding to the real salaries in the 2D plots.
+
+#   First, X train for the numbers of years of experience. There you go. And then, Y train for the salaries.
+
+#   And as we said, we're gonna choose red, perfect. Then, next step is to plot the regression line. So remember from the intuition lectures, the regression line is the line of the predictions, coming as close as possible to the real results, you know, to the real salaries. And therefore the predictions, you know, the points corresponding to the predicted salaries, will follow a straight line, right? As in a linear function.
+
+#   And therefore here we're not gonna use the scatter method, we're gonna use the plot method Cause that's what we use to plot the curve of a function. And since our function is linear, it'll actually be a straight line.
+
+#   Okay, now we're gonna input the Y coordinate. And according to you, which ones are these? Well, it's something we haven't created yet. You know, we created actually the y_pred variable containing the predicted salaries of the test set, but we haven't created a vector containing the predicted salaries of the training set.
+
+#   What we will actually enter here as the Y coordinate of this plot we're about to make, are gonna be exactly the predicted salaries of the training set. And to get them I'm going to copy this and paste that right here.
+
+#   But instead of inputting here X test, I'm going to input actually X train. Because calling the predict method on X train, meaning on the numbers of years of experience of the employees in the training set, will get me exactly the predicted salaries of the training set.
+
+Summary
+In this step of linear regression implementation, we visualize the training and test set results by plotting real vs predicted salaries.
+
+Highlights
+💼 We plot real salaries in red points and predicted salaries in a blue straight line.
+📊 We use Matplotlib's scatter function to plot the real salaries on a 2D graph.
+📈 The regression line, representing predicted salaries, is plotted using Matplotlib's plot function.
+🎯 The X axis shows years of experience and the Y axis shows salaries.
+📝 We add a title "Salary versus Experience" and label the axes accordingly.
+🖥️ Finally, we display the graphic using plt.show function.
+
+
+L - 49
+
+#   Well, you know, that's kind of a trick question because remember that the regression line that we get is actually resulting from a unique equation, and therefore the predicted salaries of the test set will be on the same regression line as the predicted salaries of the training set. And that's why here, we actually don't have to replace X_train by X_test here and here, okay?
+
+#   You would actually get the exact same regression line whether you plot the coordinates of X_train and the predicted salaries of training set or X_test and the predicted salaries of the test set. You can check, but that's because the regression line in the simple linear regression model results from a unique equation, and we therefore end up with the same regression line.
+
+Summary
+In this step, the instructor evaluates the linear regression model performance on test data by visualizing the results and comparing them to the training set results.
+
+Highlights
+💡 The test set results are visualized by replacing the training set observations with the test set observations.
+💡 The regression line for the test set does not need to be replaced as it is based on a unique equation shared with the training set.
+💡 The model's predicted salaries for the test set are very close to the real salaries, indicating a successful prediction.
+💡 Linear regression model performed well due to the linear relationship in the dataset, but non-linear models will be required for datasets with non-linear relationships.
