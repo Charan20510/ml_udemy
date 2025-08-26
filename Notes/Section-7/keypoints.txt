@@ -1,0 +1,103 @@
+L - 57
+
+#   So basically you helping them create a model based off of this sample that will allow them to assess where and in which into which companies they want to invest to achieve their goal of maximizing profit.
+
+Summary
+Venture capitalist fund challenge with 50 startups and profit as the dependent variable.
+Data set includes profit, R&D spend, administration spend, marketing spend, and state of operation.
+Task to create a regression model to predict profit based on independent variables.
+Venture capitalist fund seeks to understand which companies to invest in for maximum profit.
+Model will help fund set guidelines for investment decisions.
+Aim is to maximize profit by investing in companies with specific characteristics.
+Exciting and challenging task for data scientists.
+Highlights
+💼 Venture capitalist fund challenge with 50 startups.
+📊 Regression model to predict profit based on key variables.
+🏢 Goal to maximize profit through strategic investments.
+📈 Guidelines to be set based on model predictions.
+💡 Exciting opportunity for data scientists to analyze and create model.
+🗺️ State operations and spending patterns to be considered.
+🧠 Challenging task to determine optimal investment criteria.
+
+
+L - 58
+
+#   So here's the equation for multiple linear regression. As you can see, it's quite similar to the simple linear regression equation. Here we've got the dependent variable, then we've got the y-intercept or the constant, then we've got a slope coefficient and independent variable, and then we've got more pairs of those, then we've got another slope coefficient and independent variable, and so on, and another slope coefficient and independent variable.
+
+Summary
+In this lesson, we learned about multiple linear regression, which is similar to simple linear regression but involves multiple independent variables.
+
+Highlights
+💡 Multiple linear regression equation includes multiple slope coefficients for each independent variable.
+💡 Prediction models can be created using variables like kilograms of nitrogen fertilizer, temperature, and rainfall.
+💡 Example: Higher temperature leads to lower potato yield.
+💡 Recommended research paper on yield prediction using multiple linear regression and neural networks.
+💡 Practical tutorials will cover different examples.
+💡 Enjoy learning about harvesting potatoes and multiple linear regression.
+
+
+L - 59
+
+#   These four data sets are called the Anscombe's quartet and they illustrate that you can't just simply, blindly apply linear regression, you have to make sure that your data set is fit for using linear regression. And that's where assumptions of linear regression come in.
+
+#   The first assumption is linearity. We want to make sure that there is a linear relationship between our dependent variable and each independent variable. And if you look at the chart here on the right, you'll see that the linear regression is misleading. There is actually no linear relationship between the two variables. So we wouldn't use this kind of model there.
+
+#   The second assumption is homoscedasticity. And even though it sounds like a complex term, it actually simply means equal variance. Meaning that you don't want to see a cone type shape on your chart whether an increasing cone or a decreasing cone. Which would mean that variance is dependent on the independent variable. So in this case, we wouldn't use a linear regression either.
+
+#   The third assumption is multivariate normality or normality of error distribution. If you look at the chart here on the right, you can feel that something is off. The best way to intuitively think about it is if you look along the line of the linear regression, you want to see a normal distribution of your data point. In the case on the right here, we can see something different. And so, again, we wouldn't apply a linear regression there.
+
+#   The fourth assumption is independence of observations. And this includes the term no autocorrelation. Sometimes you'll see the assumption titled as no autocorrelation. And what that means is that we don't want to see any kind of pattern in our data. A pattern in the data, like we see here, indicates that our rows are not independent, that some rows are affecting other rows and other rows, et cetera. A classic example of this would be the stock market where previous prices affect future prices, which affect future prices and so on. So in this case, we wouldn't apply a linear regression model.
+
+#   The fifth assumption is lack of multicollinearity. Basically, we want our independent variables or predictors not to be correlated with each other. If they're not correlated, then we can build a linear regression. If they are correlated, then if we do proceed and build a linear regression model, then the coefficient estimates that we get in the model will become unreliable.
+
+#   And the sixth point is the outlier check. If you look at the chart here on the right, you can see that the outlier is significantly affecting the linear regression line that we get. So something that we want to consider is, should we remove the outliers before building a linear regression or do we want to build a linear regression with the outliers included? This will depend on your business knowledge and knowledge of the data set.
+
+Summary
+Understanding the assumptions of linear regression is crucial to ensure the model is appropriate for the data set. There are five main assumptions: linearity, homoscedasticity, multivariate normality, independence of observations, and lack of multicollinearity. Additionally, an outlier check is recommended for model accuracy.
+
+Highlights
+📈 Linearity assumption: Ensure a linear relationship exists between dependent and independent variables.
+📊 Homoscedasticity assumption: Look for equal variance, avoiding cone-shaped patterns on charts.
+📉 Multivariate normality assumption: Seek a normal distribution of data points along the linear regression line.
+🔄 Independence of observations assumption: Avoid patterns in data that suggest rows are not independent.
+🔀 Lack of multicollinearity assumption: Ensure independent variables are not correlated to maintain reliable coefficient estimates.
+🚨 Outlier check: Consider removing outliers before building the linear regression model for better accuracy.
+
+
+L - 60
+
+#   The challenge that we're faced with is that the venture capitalist Fund wants to see if there's any correlations between profit and the months that have been spent on different expenses R&D admin and marketing and also with on which in which stage the company operates.
+
+#   Is there a correlation between profit and all these variables and how would you go about creating a model to understand how knowing R&D spend admin and marketing and stay to predict profit and so therefore profit is our dependent variable and the rest the blue ones are all independent variables.
+
+#   And the thing here is that the state is actually a categorical variable so we talked about types of variables before and we understood that there's categorical variables and there's numeric variables.
+
+#   Well in this case state is a categorical variable and therefore we can add it to our equation. We need to do something about this situation and the approach that you need to take when you face categorical variables in regression models is you need to create dummy variables.
+
+#   First you need to go through your column and find all the different categories you have. So in this case we have two categories. So for every single category that you followed you need to create a new column for New York we're going to create a column called New-Yorker for color for immigrants create calm California so we're kind of expanding our data set and adding some additional columns into it.
+
+#   So this is the fun part to populate these columns. The start of the New Yorker. You find all of your rows where the state actually says New York and you need to for those Rosing to put a one in the your column and then in California for all the rows that say California. Basically for all the rows that don't say new or whatever else they say you just put a 0 and then for California for the column California you do the same thing.
+
+#   Wherever A says California in the state column you place a 1 in the California column and for any other values in the state column you place a zero in the California column.
+
+#   And so you end up with a data set like this and these two new columns are called dummy variables and building your regression model from here is very simple.
+
+#   You don't use the California column either. So as you can see here all the information in our data is preserved. If we just stick to the one New York column because you can tell right away if one is a one then it's a company that works and it operates in New York. If one is a zero it's a company that operates in California.
+
+#   But for now I would like to discuss two things so first of all the New York column or all of the dummy variables they work as switches. In this case let's look at the New York column which we're including in our regression. It works like a light switch so if it's a one then you know that this company is in New York. If it's a zero Sol off in this case in the case of the picture then you know that the company doesn't work in New York option so the dummy variables work like light switches. And that's why they're ones and zeros and they don't need any other values in them.
+
+#   So basically what that means is that the coefficient for California is going to be included in the constant and be zero. And by default when D1 is equal to zero this whole equation will turn into an equation you can think of it as it'll turn into equation for California. But then when Diwan becomes one you're adding before which is once again like this is a very basic explanation but you're adding a coefficient which is the difference between New York and California.
+
+#   So basically you're altering from California to New York by flipping this light switch if it's on off then kind of default state and the whole equation is working for California. If it's on on then by adding that before you're altering the equation from the default state of California to New York.
+
+Summary
+Handling categorical variables in linear regression models involves creating dummy variables for each category. This allows us to include categorical data in our regression equation without losing information.
+
+Highlights
+💡 Categorical variables like the state a company operates in can be included in linear regression models by creating dummy variables.
+💡 Dummy variables act as switches, with a value of 1 indicating the presence of a category and 0 indicating the absence.
+💡 Including dummy variables for each category prevents bias in the regression model, as the omitted category becomes the default reference point.
+💡 By using dummy variables, we can analyze how different categories impact the dependent variable without losing information.
+💡 Dummy variables are essential for handling categorical data in regression analysis and help us avoid the dummy variable trap.
+💡 Building a regression model with dummy variables is straightforward and allows for accurate prediction of the dependent variable.
+💡 Understanding how to handle categorical variables in regression models is crucial for accurate data analysis and prediction.
