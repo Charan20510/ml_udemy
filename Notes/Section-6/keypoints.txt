@@ -130,7 +130,7 @@ L - 47
 
 #   We wanna predict the results of the observations in the test set.
 
-#   So let's say, just to simplify the explanation, that the observations of the test set are the last six ones, you know, 1, 2, 3, 4, 5, 6. So let's say all these observations went into the test set. Well, what we wanna do now is predict for each of these observations, meaning for each of these employees, the salary.
+#   So let's say, just to simplify the explanation, that the observations of the test set are the last six ones. So let's say all these observations went into the test set. Well, what we wanna do now is predict for each of these observations, meaning for each of these employees, the salary.
 
 #   So what we're gonna input in that predict method is exactly the number of years of experience for each of these six employees. And our moral will predict the salaries.
 
